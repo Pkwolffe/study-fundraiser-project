@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "NSMQ": {
+      "address": "0x60A6535E7e2D995AbBb783D4669f92C240563C20",
+      "startBlock": 6673324
+    }
+  }
+}

@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: NSMQ
+    network: sepolia
+    source:
+      address: "0x60A6535E7e2D995AbBb783D4669f92C240563C20"
+      abi: NSMQ
+      startBlock: 6673324
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - FundWithdrawn
+        - PaymentMade
+      abis:
+        - name: NSMQ
+          file: ./abis/NSMQ.json
+      eventHandlers:
+        - event: FundWithdrawn(indexed address,uint256)
+          handler: handleFundWithdrawn
+        - event: PaymentMade(indexed address,uint256)
+          handler: handlePaymentMade
+      file: ./src/nsmq.ts
